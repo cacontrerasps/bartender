@@ -1,4 +1,4 @@
-# bartender :octopus:
+# BARTENDER :waiter:
 Repositorio que contiene el Examen Aldeamo
 
 # Configuracion :wrench: 
@@ -10,7 +10,7 @@ Valores a modificar:</br>
 spring.datasource.url=URL_DE_ACCESO</br>
 spring.datasource.username=USUARIO_BD</br>
 spring.datasource.password=PASSWORD</br>
-# Cadena con los 100 pirmeros numeros primos
+Cadena con los 100 pirmeros numeros primos<br>
 spring.datasource.primos= 2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,83,89,97,101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,193,197,199
 
 :tada:
