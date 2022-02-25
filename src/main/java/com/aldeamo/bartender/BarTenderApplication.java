@@ -26,9 +26,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 		"//Ejemplo\n" +
 		"\n" +
 		"INPUT\n" +
-		"\n" +
-		"www.aldeamo.com Cra 17aNo 106–30(+601) 6291066 –2148041\n" +
-		"Bogotá, Colombia\n" +
+		"\n" +		
 		"A0=2,3,4,5,6,7\n" +
 		"Q=3\n" +
 		"\n" +
