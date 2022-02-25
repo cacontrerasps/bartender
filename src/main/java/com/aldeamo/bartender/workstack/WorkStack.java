@@ -1,6 +1,5 @@
 package com.aldeamo.bartender.workstack;
 
-import net.bytebuddy.utility.visitor.StackAwareMethodVisitor;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,36 +12,36 @@ public class WorkStack {
     private String numPrimos;
 
 
-
-    public WorkStack(int iteracciones, String stack,String numPrimos) {
+    public WorkStack(int iteracciones, String stack, String numPrimos) {
         this.iteracciones = iteracciones;
         this.stack = stack;
-        this.numPrimos=numPrimos;
+        this.numPrimos = numPrimos;
     }
 
-    public List<String> responseStack(){
-
-        List <String> response= new ArrayList<>();
-        List <String> stackB= new ArrayList<String>();
-        List <String> stackA= new ArrayList<String>(Arrays.asList(stack.split(",")));
-        List <String> primos= new ArrayList<String>(Arrays.asList(numPrimos.split(",")));
+    public List<String> responseStack() {
+        List<String> response = new ArrayList<>();
+        List<String> stackB = new ArrayList<String>();
+        List<String> stackA = new ArrayList<String>(Arrays.asList(stack.split(",")));
+        List<String> primos = new ArrayList<String>(Arrays.asList(numPrimos.split(",")));
+        int j;
         Collections.reverse(stackA);
-        for (int i=0;i<iteracciones;i++){
-            for(int j=0;j<stackA.size();j++){
-                if(Integer.parseInt(stackA.get(j))%Integer.parseInt(primos.get(i))==0){
+        for (int i = 0; i < this.iteracciones; ++i) {
+            j = 0;
+            while (stackA.size() > 0) {
+                if (stackA.size() <= j) break;
+                if (Integer.parseInt(stackA.get(j)) % Integer.parseInt(primos.get(i)) == 0) {
                     stackB.add(stackA.get(j));
                     stackA.remove(j);
                 }
+                ++j;
             }
-            Collections.sort(stackB,Collections.reverseOrder());
-            if(!stackB.isEmpty()) {
-                response.add(i, ((i > 0) ? response.get(i - 1) + "," : "") + String.join(",", stackB));
-            }
-            stackB.clear();
+            response.add(String.join(",", stackB));
         }
-        if(stackA.size()>0){
-            response.add(iteracciones, response.get(iteracciones-1)+","+String.join(",",stackA));
+        if (stackA.size() > 0) {
+            stackB.add(String.join(",", stackA));
+            response.add(String.join(",", stackB));
         }
+        response.removeAll(Arrays.asList("", null));
         return response;
     }
 }
