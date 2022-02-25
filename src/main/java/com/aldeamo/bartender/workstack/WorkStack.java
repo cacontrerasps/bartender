@@ -24,16 +24,15 @@ public class WorkStack {
         List<String> stackA = new ArrayList<String>(Arrays.asList(stack.split(",")));
         List<String> primos = new ArrayList<String>(Arrays.asList(numPrimos.split(",")));
         int j;
-        Collections.reverse(stackA);
         for (int i = 0; i < this.iteracciones; ++i) {
-            j = 0;
+            j = stackA.size() - 1;
             while (stackA.size() > 0) {
-                if (stackA.size() <= j) break;
+                if (j < 0) break;
                 if (Integer.parseInt(stackA.get(j)) % Integer.parseInt(primos.get(i)) == 0) {
                     stackB.add(stackA.get(j));
                     stackA.remove(j);
                 }
-                ++j;
+                --j;
             }
             response.add(String.join(",", stackB));
         }
